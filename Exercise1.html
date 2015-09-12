@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="Exercise1.css" />
@@ -11,6 +9,12 @@
 <canvas id="happyFace" width="400" height="500"
 style="border:1px solid black;"></canvas>
 
+<script>
+var c = document.getElementById("happyFace");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#00CCFF";
+ctx.fillRect(0,0,400,500);
+</script>
 
 <script>
 var c = document.getElementById("happyFace");
@@ -18,6 +22,8 @@ var ctx = c.getContext("2d");
 ctx.beginPath();
 ctx.arc(200,150,80,0,2*Math.PI);
 ctx.stroke();
+ctx.fillStyle="yellow";
+ctx.fill();
 </script>
 
 <script>
@@ -26,6 +32,8 @@ var ctx = c.getContext("2d");
 ctx.beginPath();
 ctx.arc(230,130,10,0,2*Math.PI);
 ctx.stroke();
+ctx.fillStyle="black";
+ctx.fill();
 </script>
 
 <script>
@@ -34,6 +42,8 @@ var ctx = c.getContext("2d");
 ctx.beginPath();
 ctx.arc(170,130,10,0,2*Math.PI);
 ctx.stroke();
+ctx.fillStyle="black";
+ctx.fill();
 </script>
 
 <script>
@@ -42,6 +52,117 @@ var ctx = c.getContext("2d");
 ctx.beginPath();
 ctx.arc(200,160,40,0,1*Math.PI);
 ctx.stroke();
+</script>
+
+<br>
+<input onclick="changeFace()" type="button" value="Make me sad" id="face"></input>
+
+<script>
+function changeFace() {
+    var elem = document.getElementById("face");
+    if (elem.value=="Make me sad") makeSad();
+    else makeHappy();
+}
+</script>
+
+<script>
+function makeSad() {
+    var elem = document.getElementById("face");
+    elem.value = "Make me happy";
+    
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+
+
+    ctx.clearRect(0, 0, c.width, c.height);
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#00CCFF";
+    ctx.fillRect(0,0,400,500);
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(200,150,80,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="yellow";
+    ctx.fill();
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(230,130,10,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(170,130,10,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(200,200,40,1*Math.PI,0);
+    ctx.stroke();
+
+    
+}
+</script>
+
+<script>
+function makeHappy() {
+    var elem = document.getElementById("face");
+    elem.value = "Make me sad";
+    
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+
+    ctx.clearRect(0, 0, c.width, c.height);
+    
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#00CCFF";
+    ctx.fillRect(0,0,400,500);
+
+    
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(200,150,80,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="yellow";
+    ctx.fill();
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(230,130,10,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(170,130,10,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    var c = document.getElementById("happyFace");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(200,160,40,0,1*Math.PI);
+    ctx.stroke();
+
+}
 </script>
 
 </body>
