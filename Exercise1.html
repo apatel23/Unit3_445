@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet" type="text/css" href="Exercise1.css" />
-<script src="Exercise1.js" type="text/javascript"></script>
 <h1>HTML5 Faces</h1>
 </head>
+
 <body>
 
-
-<canvas id="faceCanvas" width="400" height="500"
-style="border:1px solid black;"></canvas>
-
-<img id="smiley" src="smiley.jpg" height="200" width="200"
-    onclick="changeFace()" 
-    style="position: absolute; 
-           left: 100px; 
-           top: 200px;
-           z-index: 2;
-    " />
-
-<br>
-<input onclick="changeFace()" type="button" value="Make me sad" id="faceButton"></input>
-
-<script>
-function changeFace() {
-    var elem = document.getElementById("faceButton");
-    var image = document.getElementById("smiley");
-    if (elem.value=="Make me sad") {
-        image.src = "frowney.jpg";
-        makeHappy();
-    } else {
-        image.src = "smiley.jpg";
-        makeSad();
+    <canvas id="faceCanvas" width="400" height="500"
+    style="border:1px solid black;"></canvas>
+    
+    <img id="smiley" src="smiley.jpg" height="200" width="200"
+        onclick="changeFace()" 
+        style="position: absolute; 
+               left: 100px; 
+               top: 200px;
+               z-index: 2;
+        " />
+    
+    <br>
+    <input onclick="changeFace()" type="button" value="Make me sad"
+    id="faceButton"></input>
+    
+    <script>
+    function changeFace() {
+        var elem = document.getElementById("faceButton");
+        var image = document.getElementById("smiley");
+        var c = document.getElementById("faceCanvas");
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, c.width, c.height);
+        if (elem.value=="Make me sad") {
+            image.src = "frowney.jpg";
+            makeHappy();
+        } else {
+            image.src = "smiley.jpg";
+            makeSad();
+        }
     }
-}
-</script>
-
-<script>
-function makeHappy() {
-    var elem = document.getElementById("faceButton");
-    elem.value = "Make me happy";
-}
-</script>
-
-<script>
-function makeSad() {
-    var elem = document.getElementById("faceButton");
-    elem.value = "Make me Sad";
-}
-</script>
-
+    </script>
+    
+    <script>
+    function makeHappy() {
+        var elem = document.getElementById("faceButton");
+        elem.value = "Make me happy";
+    }
+    </script>
+    
+    <script>
+    function makeSad() {
+        var elem = document.getElementById("faceButton");
+        elem.value = "Make me Sad";
+    }
+    </script>
 
 </body>
 </html>

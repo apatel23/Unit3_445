@@ -2,27 +2,48 @@
 <html>
 <head>
 
+
+
 <script type="text/javascript">
 
             function leftArrowPressed() {
                 var element = document.getElementById("dog");
-                element.style.left = parseInt(element.style.left) - 10 + 'px';
+                var left = parseInt(element.style.left) - 10;
+                var canvas = document.getElementById("drawCanvas");
+                if(left <= 0)
+                    element.style.left = element.style.left;
+                else
+                    element.style.left = left + 'px';
             }
 
             function rightArrowPressed() {
                 var element = document.getElementById("dog");
-                element.style.left = parseInt(element.style.left) + 10 + 'px';
-
+                var right = parseInt(element.style.left) + 10;
+                var canvas = document.getElementById("drawCanvas");
+                if(right >= canvas.width - element.width)
+                    element.style.left = element.style.left;
+                else
+                    element.style.left = right + 'px';
             }
 
             function upArrowPressed() {
                 var element = document.getElementById("dog");
-                element.style.top = parseInt(element.style.top) - 10 + 'px';
+                var up = parseInt(element.style.top) - 10;
+                var canvas = document.getElementById("drawCanvas");
+                if(up <= 0)
+                    element.style.top = element.style.top;
+                else
+                    element.style.top = up + 'px';
             }
 
             function downArrowPressed() {
                 var element = document.getElementById("dog");
-                element.style.top = parseInt(element.style.top) + 10 + 'px';
+                var down = parseInt(element.style.top) + 10;
+                var canvas = document.getElementById("drawCanvas");
+                if(down >= canvas.height - element.height)
+                    element.style.top = element.style.top;
+                else 
+                    element.style.top = down + 'px';
             }
 
             function moveSelection(evt) {
@@ -42,8 +63,7 @@
                     }
                 };
 
-        function docReady()
-        {
+        function docReady() {
           window.addEventListener('keydown', moveSelection);
         }
 
@@ -51,6 +71,10 @@
 </head>
 
 <body onload="docReady()" onkeydown="" onkeyup="">
+
+<canvas id="drawCanvas" width="1000" height="650"
+    style="border:1px solid black;"></canvas>
+
   
 <img id="dog" src="pluto.png" style="position:absolute;left:0; top:0;">
   
